@@ -1,0 +1,268 @@
+{% extends 'base_with_f_and_h.html' %}
+{% load static %}
+
+{% block title %}{{ service.slug }}{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/service_style4.css' %}">
+<div class="content-container">
+  <h1 class="text-center mt-3" style="margin-bottom: 20px; color: #000000ba;">Ремонт {{ service.title }} в Калининграде <br> на дому у заказчика</h1>
+  <div class="container">
+    <div id="myCarousel" class="carousel slide rounded" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="slider">
+                    <div class="before">
+                        <img src="{{ service.photo.url }}" alt="">
+                    </div>
+                    <div class="after">
+                        <img src="{{ service.second_photo.url }}" alt="" >
+                    </div>        
+                    <div class="change"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slider">
+              <img src="{{ service.photo.url }}" alt="">
+            </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slider">
+              <img src="{{ service.photo.url }}" alt="">
+            </div>
+            </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </div>
+    <div>
+      <p class="h4 animated-text" style="margin-top: 30px;"><strong>Вызов инженера, выезд по г. Калининград в пределах Окружной всего — 299 руб.<br> Диагностика неисправности, в случае ремонта всегда — 0 руб.<br> Стоимость ремонтных работ и запасных частей всегда согласовывается предварительно и всегда соответствует утвержденному прайсу. </strong>
+      <span id="more">В редких случаях нерентабельного ремонта или отказа клиента — оплачивается диагностика неисправности в сумме от 500 до 1200 руб. Эта сумма зависит от сложности диагностики, необходимости разборки устройства, монтажа, демонтажа, применения расходных материалов, срочный вызов или плановый, дополнительных транспортных расходов и других внеплановых ситуаций. Эта сумма сохраняется в течении месяца и ремонт может быть окончен с учетом уже оплаченной суммы. Вся отчетная информация, также сохраняется.</span>
+      
+      </p>
+    </div>
+    <button id="more-btn" class="btn btn-primary" onclick="readMore()" style="width: 250px; margin-left: 350px;">Подробнее ▼</button>
+</div>
+<h2 class="title" style="color: #000000ba;">Стоимость ремонта {{service.title}} включает</h2>
+<div class="list-container">
+  <ul class="list">
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-solid fa-car-side fa-2xl"></i>
+      </div>
+      <p class="text">Выезд мастера</p>
+    </li>
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-solid fa-stethoscope fa-2xl"></i>
+      </div>
+      <p class="text">Диагностика неисправности</p>
+    </li>
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-solid fa-screwdriver-wrench fa-2xl"></i>
+      </div>
+      <p class="text">Производство ремонтных <br>работ</p>
+    </li>
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-solid fa-gears fa-2xl"></i>
+      </div>
+      <p class="text">Использование <br>оригинальных запчастей</p>
+    </li>
+  </ul>
+  <div class="image-container">
+    <img src="{{service.third_photo.url}}" alt="" class="service-image">
+  </div>
+  <ul class="list">
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-solid fa-handshake-simple fa-2xl"></i>
+      </div>
+      <p class="text">Гарантия на все ремонты <br>от 12 месяцев</p>
+    </li>
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-regular fa-comments fa-2xl"></i>
+      </div>
+      <p class="text">Консультация и сопровождение<br> в процессе эксплуатации</p>
+    </li>
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-brands fa-bitcoin fa-2xl"></i>
+      </div>
+      <p class="text">Принимаем ВСЕ виды <br>оплаты</p>
+    </li>
+    <li class="list-item">
+      <div class="icon-container">
+        <i class="icon fa-solid fa-circle-info fa-2xl"></i>
+      </div>
+      <p class="text">Дальнейшая помощь <br>и консультации</p>
+    </li>
+  </ul>
+</div>
+</div>
+<h2 class="title" style=" margin-bottom: 50px; color: #000000ba;">Примерная стоимость ремонта {{service.title}}</h2>
+<div style="display: flex;">
+  <div style="display: flex; flex-direction: column; align-items: flex-start; margin-left: 50px;">
+    <div class="fallen-text" style=" margin-left: 100px;">
+      Выезд&nbsp;<strong> бесплатный</strong>
+    </div>
+    <div class="fallen-text" style=" margin-left: 300px;">
+      Мелкий ремонт&nbsp;<strong> от 1500 Рублей</strong>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <div class="fallen-text">
+      Диагностика&nbsp;<strong> 0 Рублей</strong>
+    </div>
+    <div class="fallen-text" style=" margin-left: 200px;">
+      Крупный ремонт&nbsp;<strong> от 3000 Рублей</strong>
+    </div>
+  </div>
+</div>
+<div class="center-container">
+  <a id="more-btn" class="btn btn-primary" style="width: 250px; text-align: center; margin-bottom: 20px;">Смотреть прайслист</a>
+</div>
+
+<div style="background-color: #f8f9fa; padding: 0 16%;">
+  <h1 class="text-center mt-3" style="color: #000000ba;">Почему Вы выберите нас</h1>
+  <div style="display: flex; justify-content: space-between; margin-top: 40px; margin-bottom: 20px;">
+    <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+      <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+          <img src="{% static 'img/top1-1.svg' %}" style="width: 100px; height: 100px; padding-right: 10%;">
+      </div>
+      <div class="topadvan-text">Работаем<br>в Калинграде<br>более 10 лет</div>
+    </div>
+    <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+      <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+          <img src="{% static 'img/cost1.svg' %}" style="width: 100px; height: 100px; padding-right: 10%;">
+      </div>
+      <div class="topadvan-text">Честные цены<br>-- мы дорожим <br>репутацией</div>
+    </div>
+    
+    <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+      <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+          <img src="{% static 'img/fast1.svg' %}" style="width: 100px; height: 100px;  padding-right: 10%;">
+      </div>
+      <div class="topadvan-text">Выезд всегда<br>в течение<br>часа</div>
+    </div>
+  </div>
+  
+  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+      <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+          <img src="{% static 'img/garantiya1.svg' %}" style="width: 100px; height: 100px;  padding-right: 10%;">
+      </div>
+      <div class="topadvan-text">Предоставляем <br>гарантию на все <br>работы до 3-х лет*</div>
+    </div>
+    
+    <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+      <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+          <img src="{% static 'img/mastera1.svg' %}" style="width: 100px; height: 100px;  padding-right: 10%;">
+      </div>
+      <div class="topadvan-text">Работы выполняют <br>мастера со стажем <br>от 10 лет</div>
+    </div>
+    
+    <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+      <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+          <img src="{% static 'img/phone1.svg' %}" style="width: 100px; height: 100px; padding-right: 10%;">
+      </div>
+      <div class="topadvan-text">Помогаем вам<br>круглосуточно <br>и без выходных</div>
+    </div>
+  </div>
+</div>
+<div>
+  <h1 class="text-center mt-3" style="color: #000000ba;">Как мы работаем</h1>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 100px; margin-top: 40px;">
+    <div style="text-align: center; margin-bottom: 10px;">
+      <div style="position: relative;">
+        <img src="{% static 'img/Icons_5-06.png.webp' %}" alt="" style="width: 100px; height: 100px;">
+        <p style="font-size: 16px; margin-top: 10px;">Принимаем заявку по телефону <br>или через формуна сайте</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 10px;">
+      <div style="position: relative;">
+        <img src="{% static 'img/Icons_5-08.svg' %}" alt="" style="width: 100px; height: 100px;">
+        <p style="font-size: 16px; margin-top: 10px;">Выезд специалиста для диагностики <br>и рассчета стоимости</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 10px;">
+      <div style="position: relative;">
+        <img src="{% static 'img/Icons_5-10-1.svg' %}" alt="" style="width: 100px; height: 100px;">
+        <p style="font-size: 16px; margin-top: 10px;">Мастер <br>проводит работы</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 10px;">
+      <div style="position: relative;">
+        <img src="{% static 'img/Icons_5-11.svg' %}" alt="" style="width: 100px; height: 100px;">
+        <p style="font-size: 16px; margin-top: 10px;">Приём работ и расчет</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color: #f8f9fa;">
+  <div style="margin: 0 10%;">
+    <h1 class="text-center mt-3" style="color: #000000ba;">Оформить заказ</h1>
+    <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+      <div style="flex: 1; padding-right: 15px;">
+        <h3 style="padding-left: 20px;" class="input-class1">Я хочу оставить заявку на:</h3>
+        <div class="form-check input-class">
+          <input class="form-check-input" type="radio" name="orderType" id="orderType1" aria-label="Радиокнопка для следующего ввода текста">
+          <label class="form-check-label" for="orderType1">Ремонт крупной бытовой техники на дому (кроме ТВ)</label>
+        </div>
+        <div class="form-check input-class">
+          <input class="form-check-input" type="radio" name="orderType" id="orderType2" aria-label="Радиокнопка для следующего ввода текста">
+          <label class="form-check-label" for="orderType2">Доставку бытовой техники к нам в сервис для ремонта</label>
+        </div>
+        <div class="form-check input-class1">
+          <input class="form-check-input" type="radio" name="orderType" id="orderType3" aria-label="Радиокнопка для следующего ввода текста">
+          <label class="form-check-label" for="orderType3">Подключение бытовой техники</label>
+        </div>
+        <div class="width-p">
+          <p>
+            Если вы хотите сдать технику в ремонт самостоятельно, то Вам не нужно делать предварительную заявку. Сразу привозите нам на Судостроительную, 75.
+            08:00–18:00, сб 10:00–16:00
+          </p>
+        </div>
+      </div>
+      <div style="flex: 1; padding-left: 15px;">
+        <div style="padding: 20px;">
+          <div class="input-class">
+          <input class="form-control me-2 mb-1" type="search" placeholder="Имя *" style="width: 60%;" aria-label="Search">
+          </div>
+          <div class="input-class">
+          <input class="form-control me-2 mb-1 input-class" type="search" placeholder="Телефон *" style="width: 60%;" aria-label="Search">
+          </div>
+          <div class="form-floating" style="margin-top: 20px;">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 226px; width: 550px;"></textarea>
+            <label for="floatingTextarea2">Комментарий к заказу</label>
+          </div>
+          <button class="btn btn-primary mt-3" style="padding: 5px 10px; color: white; width: 25%; background-color: rgba(38, 118, 248);"><i class="fa-solid fa-envelope-open-text" style="display: flexbox;"></i> Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dws">
+  <div class="pulse">
+    <div class="bloc"></div>
+    <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i></div>
+    <div class="text-1">Оформить заказ</div>
+  </div>
+</div>
+
+
+<script src="{% static 'js\service_script3.js' %}"></script>
+{% endblock %}  

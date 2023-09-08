@@ -1,0 +1,219 @@
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  width: 22%; /* Изменили ширину на 22% для другого размера */
+  margin: 2%;
+  position: relative;
+}
+
+.image-container {
+  width: 100%;
+  padding-top: 100%; /* Creates a square aspect ratio */
+  background-size: cover;
+  background-position: center;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(38, 118, 248, 0.7);
+  color: white;
+}
+
+/* Стили для сервисов */
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.service-item {
+  width: 32%;
+  margin: 4px 0.60606060606061%;
+  position: relative;
+}
+
+.image-container {
+  height: 200px; /* Подберите подходящую высоту */
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100px;
+  position: relative;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  animation-name: Appearance;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(.1,-.6,.2,0);
+}
+
+@-webkit-keyframes Appearance {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-o-keyframes Appearance {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes Appearance {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes Appearance {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Усилим прозрачность затемнения */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.service-item:hover .image-container::before {
+  opacity: 1;
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(38, 118, 248, 0.6); /* Усилим прозрачность фона текста */
+  color: #fff;
+  font-size: 16px;
+  width: 83%;
+  height: 78px;
+  padding: 15px 10px 10px 15px;
+  top: 26px;
+  text-transform: uppercase;
+  z-index: 100;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.service-item:hover .text-overlay {
+  background-color: rgba(38, 118, 248, 0.8); /* Сделаем фон еще более видимым при наведении */
+}
+.input-class{
+  margin-bottom: 10px;
+}
+.input-class1{
+  margin-bottom: 30px;
+}
+.width-p{
+  width: 80%;
+}
+.dws {
+  position: fixed;
+  top: 90%;
+  left: 94%;
+  transform: translate(-50%, -50%);
+ }
+ .pulse, .bloc, .phone {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+ }
+ .bloc {
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+ }
+ .pulse {
+  background: rgba(38, 118, 248, 0.8);
+  position: relative;
+  transition: .5s;
+ }
+ .phone {
+  font-size: 50px;
+  line-height: 94px;
+  animation: phone .9s ease-in-out infinite;
+ }
+ .text {
+  position: absolute;
+  opacity: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  top: 28px;
+  font-size: 15px;
+  transform: scaleX(-1);
+  transition: .5s ease-in-out;
+ }
+ .phone i {
+  transition: .5s ease-in-out;
+ }
+ .pulse:hover {
+  background: rgba(38, 118, 248, 1);
+ }
+ .pulse:hover i {
+  transition: .5s ease-in-out;
+  transform: scale(0);
+ }
+ .pulse:hover .text {
+  transform: scaleX(1);
+  transition: .5s ease-in-out;
+  opacity: 1;
+ }
+ .pulse:hover::before,
+ .pulse::after {
+  content: '';
+  position: absolute;
+  border: 2px solid rgba(38, 118, 248, 0.8);
+  left: -20px;
+  right: -20px;
+  top: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  animation: pulse 1.8s linear infinite;
+  opacity: 0;
+ }
+ .pulse::after {
+  animation-delay: .5s;
+ }
+ @keyframes phone {
+  0%, 100% {
+   transform: rotate(-20deg);
+  }
+  50% {
+   transform: rotate(21deg);
+  }
+ }
+ @keyframes pulse {
+  0% {
+   transform: scale(0.5);
+   opacity: 0;
+  }
+  50% {
+   opacity: 1;
+  }
+  100% {
+   transform: scale(1.2);
+   opacity: 0;
+  }
+ }
+
+ 

@@ -1,0 +1,83 @@
+/* Обнуляем отступы для body и container-fluid */
+body, .container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+/* Задаем отступы внутри навбара */
+.navbar {
+  margin: 0;
+  padding: 10px 0px; /* Отступы сверху и снизу по 10px, слева и справа по 100px */
+}
+
+/* Удаляем стандартную рамку у кнопки навбара и задаем отступы */
+.navbar-toggler {
+  border: none;
+  margin-right: 20px;
+}
+
+/* Убираем точки из списка */
+.navbar-nav .nav-item {
+  list-style: none;
+}
+.nav-item{
+  padding:0px 20px;
+}
+
+/* Задаем стили для ссылок */
+.navbar-nav .nav-link {
+  font-size: 20px;
+  position: relative;
+  padding: 10px 15px; /* Отступы сверху и снизу по 10px, слева и справа по 15px */
+}
+
+/* Добавляем линию снизу при наведении на ссылку */
+.navbar-nav .nav-item .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  visibility: hidden;
+  transition: width 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover::before {
+  width: 100%;
+  visibility: visible;
+}
+
+/* Стили для поисковой строки и кнопки поиска */
+.form-control {
+  padding: 8px;
+}
+
+.btn {
+  padding: 8px 15px;
+}
+.margin-right_li{
+  margin-right: 80px;
+}
+.margin-left_li{
+  margin-left: 50px;
+}
+.scrolled-nav {
+  background-color: #343a40; /* Цвет фона второго навбара */
+  color: white; /* Цвет текста */
+  padding: 10px 0; /* Внутренние отступы */
+  position: absolute; /* Абсолютное позиционирование */
+  width: 100%; /* Занимать всю ширину страницы */
+  top: 0; /* Начать фиксацию с верха страницы */
+  transform: translateY(-100%); /* Скрыть начально навбар за верхним краем */
+  transition: transform 0.3s ease; /* Плавное появление/скрытие */
+}
+
+/* При прокрутке страницы */
+@media (min-width: 992px) {
+  .scrolled-nav.scrolled {
+      transform: translateY(0); /* Показать фиксированный навбар */
+  }
+}

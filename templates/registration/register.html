@@ -1,0 +1,61 @@
+{% extends 'login_base.html' %}
+{% load static %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css\register_style.css' %}">
+<div class="container-fluid d-flex align-items-center justify-content-center" style="background-color: #e5e6e7; height: 800px;">
+    <div style="width: 40%; background-color: rgba(0, 0, 0, 0.02); border-radius: 20px; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+        <div class="text-center mb-4">
+            <h4>Регистрация/<a href="{% url 'login_user' %}" class="a_style" style="text-decoration: none;">Войти</a></h4>
+        </div>
+        <form action="{% url 'register_view' %}" method="POST" class="mb-3">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_first_name" class="form-label">Имя</label>
+                <input name="first_name" type="text" class="form-control" id="id_first_name" placeholder="Введите ваше имя">
+            </div>
+            <div class="mb-3">
+                <label for="id_last_name" class="form-label">Фамилия</label>
+                <input name="last_name" type="text" class="form-control" id="id_last_name" placeholder="Введите вашу фамилию">
+            </div>
+            <div class="mb-3">
+                <label for="id_email" class="form-label">Адрес Электронной почты или телефон</label>
+                <input name="email" type="email" class="form-control" id="id_email" placeholder="Введите ваш адрес электронной почты или телефон">
+            </div>
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Имя пользователя</label>
+                <input name="username" type="text" class="form-control" id="id_username" placeholder="Выберите имя пользователя">
+            </div>
+            <div class="mb-3">
+                <label for="id_password" class="form-label">Пароль</label>
+                <input name="password" type="password" class="form-control" id="id_password" placeholder="Введите пароль">
+            </div>
+            <div class="mb-3">
+                <label for="id_confirm_password" class="form-label">Подтвердите пароль</label>
+                <input name="confirm_password" type="password" class="form-control" id="id_confirm_password" placeholder="Подтвердите ваш пароль">
+            </div>
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-primary" style="width: 200px;">Зарегистрироваться</button>
+            </div>
+            <p class="text-center">Есть аккаунт? <a href="{% url 'login_user' %}">Войдите!</a></p>
+        </form>
+        <div class="mb-3 d-flex justify-content-center align-items-center gap-3 " style="margin-top: 30px;">
+          <a href="#"><i class="fa-brands fa-google fa-2xl" style="color: black;"></i></a>
+          <a href="#"><i class="fa-brands fa-vk fa-2xl" style="color: black;"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter fa-2xl" style="color: black;"></i></a>
+          <a href="#"><i class="fa-brands fa-yandex-international fa-2xl" style="color: black;"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook fa-2xl" style="color: black;"></i></a>
+      </div>
+      
+        <div class="form-group">
+            {% for message in messages %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

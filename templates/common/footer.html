@@ -1,0 +1,119 @@
+{% load static %}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .footer {
+        background-color: #f8f9fa;;
+        padding: 20px 0;
+        text-align: center;
+        color: black; /* Черный цвет для текста */
+        width: 100%;
+    }
+    .logo {
+        float: left;
+        margin-right: 20px;
+        width: 200px;
+        height: 80px;
+    }
+    .contact {
+        text-align: left;
+        margin-top: 10px;
+    }
+    .map {
+        margin-top: 20px;
+        text-align: right; /* Выравнивание карты вправо */
+        position:relative; /* Добавлено позиционирование абсолютно */
+        left: 100px; /* Положение справа */
+    }
+    .line {
+        border-top: 1px solid black;
+        margin: 20px 0;
+    }
+    .rights {
+        margin-top: 20px;
+    }
+    h3, h4, p, label {
+        color: black;
+    }
+    .menu,
+    .services {
+        max-width: 150px;
+        text-align: left;
+    }
+    .div-m{
+        margin-top: 30px;
+    }
+    .nav-link {
+    font-size: 20px;
+    position: relative;
+    margin-bottom: -10px;
+    }
+
+    /* Добавляем линию снизу при наведении на ссылку */
+    .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    visibility: hidden;
+    transition: width 0.3s ease, visibility 0.3s ease;
+    }
+    .nav-link:hover::before {
+    width: 100%;
+    visibility: visible;
+}
+</style>
+
+<div style="background-color: #f8f9fa;" class="container-fluid">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 div-m">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="{% static 'img/logo2.svg' %}" alt="Logo" width="200px" height="80px">
+                        </a>
+                    </div>
+                    <div class="contact" style="margin-top: 30px;"> <!-- Изменено значение margin-top -->
+                        <h3>Contact Us</h3>
+                        <label><strong>Email: </strong> <a href="#">example@example.com</a></label>
+                        <label><strong>Phone: </strong> <a href="#">+1 123-456-7890</a></label>
+                    </div>
+                </div>
+                <div class="col-md-3 menu" style="margin-top: 20px;">
+                    <h3>Menu</h3>
+                    <a href="#" class="nav-link" style="width: 50px; line-height: 1;">Home</a><br>
+                    <a href="#" class="nav-link" style="width: 90px; line-height: 1;">About Us</a><br>
+                    <a href="#" class="nav-link" style="width: 80px; line-height: 1;">Services</a><br>
+                    <a href="#" class="nav-link" style="width: 100px; line-height: 1;">Contact Us</a>
+                </div>
+                <div class="col-md-3 services" style="margin-top: 20px;">
+                    <h3>Services</h3>
+                    <a href="#" class="nav-link" style="width: 90px; line-height: 1;">Service 1</a><br>
+                    <a href="#" class="nav-link" style="width: 90px; line-height: 1;">Service 2</a><br>
+                    <a href="#" class="nav-link" style="width: 90px; line-height: 1;">Service 3</a><br>
+                    <a href="#" class="nav-link" style="width: 90px; line-height: 1;">Service 4</a>
+                </div>
+                <div class="col-md-3 map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2304.1756699650223!2d20.502347976816868!3d54.72412477272081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e31585a3de6edf%3A0x353c85a6fcac138d!2z0KLQtdGF0LTQvtC60YLQvtGAINGA0LXQvNC-0L3RgiDQsdGL0YLRgtC10YXQvdC40LrQsCDQt9Cw0L_Rh9Cw0YHRgtC4!5e0!3m2!1sru!2s!4v1692473049922!5m2!1sru!2s" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 line"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 rights">
+                    <p>All rights reserved &copy; 2023 Your Company</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+{% extends 'login_base.html' %}
+{% load static %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+    <!-- {% if request.user.is_authenticated %}
+        <p class="text-success">You are logged in</p>
+        <p class="text-success">Username: {{ request.user.username }}</p>
+        <a href="{% url 'logout_user' %}" type="button" class btn btn-success btn-lg>Log out</a>
+
+    {% else %}
+        <p class="text-danger h3">User is not logged in</p>
+        <a href="{% url 'register_view' %}" type="button" class btn btn-success btn-lg>Registration</a>
+    {% endif %} -->
+<link rel="stylesheet" href="{% static 'css\register_style.css' %}">
+<div class="container-fluid d-flex align-items-center justify-content-center" style="background-color: #e5e6e7; height: 800px;">
+    <div style="width: 40%; background-color: rgba(0, 0, 0, 0.02); border-radius: 20px; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+        <div class="text-center mb-4">
+            <h4>Войти/<a href="{% url 'register_view' %}" class="a_style" style="text-decoration: none;">Регистрация</a></h4>
+        </div>
+        <form action="{% url 'login_user' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="inputUsername" class="form-label">Имя пользователя</label>
+                <input name="username" type="text" class="form-control" id="inputUsername" placeholder="Введите имя пользователя">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Пароль</label>
+                <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Введите пароль">
+            </div>
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+                <button type="submit" class="btn btn-primary" style="width: 200px;">Войти</button>
+            </div>
+            <div class="mb-3 text-center">
+                <p>У вас нет аккаунта? <a href="{% url 'register_view' %}">Зарегистрируйтесь!</a></p>
+            </div>
+            <div class="mb-3 d-flex justify-content-center align-items-center gap-3 " style="margin-top: 30px;">
+                <a href="#"><i class="fa-brands fa-google fa-2xl" style="color: black;"></i></a>
+                <a href="#"><i class="fa-brands fa-vk fa-2xl" style="color: black;"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter fa-2xl" style="color: black;"></i></a>
+                <a href="#"><i class="fa-brands fa-yandex-international fa-2xl" style="color: black;"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook fa-2xl" style="color: black;"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

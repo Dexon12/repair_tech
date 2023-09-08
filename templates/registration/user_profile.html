@@ -1,0 +1,91 @@
+{% extends 'base_with_f_and_h.html' %}
+{% load static %}
+
+{% block title %}Your profile{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 ms-5">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Текущий заказ
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Здесь будет ваш текущий заказ
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Ваши заказы
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>1 заказ</p>
+                        <p>2 заказ</p>
+                        <p>3 заказ</p>
+                        <p>4 заказ</p>
+                        <p>5 заказ</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Заказы
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>1 заказ</p>
+                        <p>2 заказ</p>
+                        <p>3 заказ</p>
+                        <p>4 заказ</p>
+                        <p>5 заказ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-8" style="padding-left: 0px; margin-left: 0;">
+            <div class="row mt-5">
+                <div class="col-lg-12 text-end me-5">
+                    <div class="profile-card p-4 rounded shadow">
+                        <h1 class="mb-4">Информация о вас</h1>
+                        <p class="profile-info">Username: {{request.user.username}}</p>
+                        <p class="profile-info">Address: Your address</p>
+                        {% if request.user.email %}
+                            <p class="profile-info">Email: {{request.user.email}}</p>
+                        {% else %}
+                            <p class="profile-info">Email: Вы не ввели email</p>
+                        {% endif %}
+                        <a href="{% url 'logout_user' %}" class="btn btn-outline-info">Выйти</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 text-end me-5">
+                    <div class="profile-card p-4 rounded shadow">
+                        <h3 class="mb-4">Ваша скидка равна: ???%</h3>
+                        <a href="#" class="btn btn-outline-info btn-lg">Оформить заказ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Остальные блоки -->
+</div>
+{% else %}
+<div class="container-fluid">
+    <h1>Вы не зарегистрированны.</h1>
+</div>
+{% endif %}
+{% endblock %}

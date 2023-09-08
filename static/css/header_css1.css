@@ -1,0 +1,94 @@
+/* Дивы          */
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+.container-fluid {
+    max-width: 100%; /* Или другое значение, которое вам подходит */
+  }
+
+  /* а*/
+.header-item {
+    margin-right: 70px;
+  }
+
+.text_a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+.text_a:hover{
+    color: rgb(55, 54, 54);
+}
+
+
+
+/* А btn*/
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: rgb(38, 118, 248);
+  border-color: rgb(38, 118, 248);
+}
+.btn:hover {
+  background-color: rgb(38, 118, 248);
+  color: white;
+  border-color: rgb(38, 118, 248);
+}
+.btn:active {
+  border-color: rgb(38, 118, 248);
+}
+
+
+/* Icons*/
+.icon-link {
+    margin-left: 100px; /* Добавленное свойство */
+
+  }
+.header-icons {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 10px;
+    padding: 0px 20px;
+}
+
+.header-icon {
+    font-size: 25px;
+    margin-right: 10px; /* Паддинг между иконками */
+    cursor: pointer; /* Добавлено свойство для указания на кликабельность */
+  }
+
+  /* Стили для icon профиля */
+.profile-icon {
+    font-size: 30px;
+    margin-left: 30px; /* Смещение влево на 30px */
+    cursor: pointer; /* Добавлено свойство для указания на кликабельность */
+  }
+
+.btn-my{
+  background-color: white;
+  color: rgb(38, 118, 248);
+}
+.btn-my:hover{
+  background-color: rgb(38, 118, 248);
+  color: white;
+}
+.btn-my:active {
+  border-color: rgb(38, 118, 248);
+} 
+.navbar-nav .dropdown-menu{
+  right: 0;
+  left: auto;
+}
+#navbarDropdown1{
+  color: rgb(38, 118, 248);
+  font-size: 26px;
+}
+#navbarDropdown1:hover{
+  color: rgb(32, 90, 185);
+}

@@ -1,0 +1,253 @@
+{% extends 'base_with_f_and_h.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/home_page1.css' %}">
+<div class="container-fluid">
+  <div style="position: relative; display: flex; justify-content: center; align-items: center; height: 60vh;">
+    <div style="position: relative; text-align: center; margin: -50vh 0;">
+        <img src="{% static 'img/master.png' %}" class="img-fluid" alt="no img" style="border-radius: 50px; display: block; margin: 0 auto;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; padding: 10px; border-radius: 5px;">
+            <p style="font-size: 2rem; margin-bottom: 1%; color: black;">Обратный звонок</p>
+            <div style="display: flex; gap: 1%;">
+                <input class="form-control me-2" type="search" placeholder="Имя *" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Телефон *" aria-label="Search">
+                <button  class="btn btn-primary" style="padding: 5px 10px; color: aliceblue; ">Отправить</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <h1 class="text-center mt-3">Наши услуги</h1>
+    <div class="service-container" style="margin: 2% 16.39%;">
+        {% for service in services %}
+        <div class="service-item">
+            <a class="serv__ul_li_a" href="{% url 'service_detail' service_slug=service.slug %}">
+                <div class="image-container" style="background-image: url('{{ service.photo.url }}');"></div>
+                <p class="text-overlay serv__p">Ремонт {{ service.title }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div style="background-color: #f8f9fa; padding: 0 16%;">
+      <h1 class="text-center mt-3">Почему Вы выберите нас</h1>
+      
+      <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+        <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+          <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+              <img src="{% static 'img/top1-1.svg' %}" style="width: 100px; height: 100px; padding-right: 10%;">
+          </div>
+          <div class="topadvan-text">Работаем<br>в Калинграде<br>более 10 лет</div>
+        </div>
+        <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+          <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+              <img src="{% static 'img/cost1.svg' %}" style="width: 100px; height: 100px; padding-right: 10%;">
+          </div>
+          <div class="topadvan-text">Честные цены<br>-- мы дорожим <br>репутацией</div>
+        </div>
+        
+        <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+          <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+              <img src="{% static 'img/fast1.svg' %}" style="width: 100px; height: 100px;  padding-right: 10%;">
+          </div>
+          <div class="topadvan-text">Выезд всегда<br>в течение<br>часа</div>
+        </div>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+          <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+              <img src="{% static 'img/garantiya1.svg' %}" style="width: 100px; height: 100px;  padding-right: 10%;">
+          </div>
+          <div class="topadvan-text">Предоставляем <br>гарантию на все <br>работы до 3-х лет*</div>
+        </div>
+        
+        <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+          <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+              <img src="{% static 'img/mastera1.svg' %}" style="width: 100px; height: 100px;  padding-right: 10%;">
+          </div>
+          <div class="topadvan-text">Работы выполняют <br>мастера со стажем <br>от 10 лет</div>
+        </div>
+        
+        <div class="topadvan-item d-flex align-items-center" style="flex: 0 0 30%; padding: 20px;">
+          <div class="topadvan-img d-flex justify-content-center align-items-center mr-4">
+              <img src="{% static 'img/phone1.svg' %}" style="width: 100px; height: 100px; padding-right: 10%;">
+          </div>
+          <div class="topadvan-text">Помогаем вам<br>круглосуточно <br>и без выходных</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-center mt-3">Как мы работаем</h1>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 100px; margin-top: 40px;">
+        <div style="text-align: center; margin-bottom: 10px;">
+          <div style="position: relative;">
+            <img src="{% static 'img/Icons_5-06.png.webp' %}" alt="" style="width: 100px; height: 100px;">
+            <p style="font-size: 16px; margin-top: 10px;">Принимаем заявку по телефону <br>или через формуна сайте</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 10px;">
+          <div style="position: relative;">
+            <img src="{% static 'img/Icons_5-08.svg' %}" alt="" style="width: 100px; height: 100px;">
+            <p style="font-size: 16px; margin-top: 10px;">Выезд специалиста для диагностики <br>и рассчета стоимости</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 10px;">
+          <div style="position: relative;">
+            <img src="{% static 'img/Icons_5-10-1.svg' %}" alt="" style="width: 100px; height: 100px;">
+            <p style="font-size: 16px; margin-top: 10px;">Мастер <br>проводит работы</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 10px;">
+          <div style="position: relative;">
+            <img src="{% static 'img/Icons_5-11.svg' %}" alt="" style="width: 100px; height: 100px;">
+            <p style="font-size: 16px; margin-top: 10px;">Приём работ и расчет</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background-color: #f8f9fa;">
+      <div style="margin: 0 10%;">
+        <h1 class="text-center mt-3">Оформить заказ</h1>
+        <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+          <div style="flex: 1; padding-right: 15px;">
+            <h3 style="padding-left: 20px;" class="input-class1">Я хочу оставить заявку на:</h3>
+            <div class="form-check input-class">
+              <input class="form-check-input" type="radio" name="orderType" id="orderType1" aria-label="Радиокнопка для следующего ввода текста">
+              <label class="form-check-label" for="orderType1">Ремонт крупной бытовой техники на дому (кроме ТВ)</label>
+            </div>
+            <div class="form-check input-class">
+              <input class="form-check-input" type="radio" name="orderType" id="orderType2" aria-label="Радиокнопка для следующего ввода текста">
+              <label class="form-check-label" for="orderType2">Доставку бытовой техники к нам в сервис для ремонта</label>
+            </div>
+            <div class="form-check input-class1">
+              <input class="form-check-input" type="radio" name="orderType" id="orderType3" aria-label="Радиокнопка для следующего ввода текста">
+              <label class="form-check-label" for="orderType3">Подключение бытовой техники</label>
+            </div>
+            <div class="width-p">
+              <p>
+                Если вы хотите сдать технику в ремонт самостоятельно, то Вам не нужно делать предварительную заявку. Сразу привозите нам на Судостроительную, 75.
+                08:00–18:00, сб 10:00–16:00
+              </p>
+            </div>
+          </div>
+          <div style="flex: 1; padding-left: 15px;">
+            <div style="padding: 20px;">
+              <div class="input-class">
+              <input class="form-control me-2 mb-1" type="search" placeholder="Имя *" style="width: 60%;" aria-label="Search">
+              </div>
+              <div class="input-class">
+              <input class="form-control me-2 mb-1 input-class" type="search" placeholder="Телефон *" style="width: 60%;" aria-label="Search">
+              </div>
+              <div class="form-floating" style="margin-top: 20px;">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 226px; width: 550px;"></textarea>
+                <label for="floatingTextarea2">Комментарий к заказу</label>
+              </div>
+              <button class="btn btn-primary mt-3" style="padding: 5px 10px; color: aliceblue; width: 25%;"><i class="fa-solid fa-envelope-open-text" style="display: flexbox;"></i> Отправить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-center mt-3">Частые вопросы</h1>
+      <div style="display: flex; align-items: flex-start; margin: 3% 10%;margin-bottom: 2%;">
+        <div style="width: 30%;">
+          <div style="text-align: center;">
+            <h3>Главный мастер</h3>
+            <img src="{% static 'img/master-alexey-1.jpg.webp' %}" alt="" style="margin-left: 10%; margin-top: 5%;">
+            <div style="margin-top: 2%; margin-left: 20%;">
+            <strong>Алексей</strong><br>
+            <em>Инженер по технике и физике низких температур. Специалист по холодильным машинам и установкам.</em>
+          </div>
+          </div>
+        </div>
+        <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 40%; margin-left: 30%; margin-top: 5%;">
+          <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+              Когда ждать мастера?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              <strong>Мастер выезжает в удобное для клиента время. Возможны задержки, что обусловлено пробками.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+              Нужно ли подготовить холодильник?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Мастер сделает все самостоятельно.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+              Что сделать до приезда мастера?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Достаточно освободить проход к холодильнику и убрать предметы, способные усложнить доступ к нему.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+              Сколько занимает ремонт?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Вне зависимости от сложности, максимальное время ремонта до 3-х часов.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+              Нужно ли везти холодильник?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>В большинстве случаев проблема решается на месте, без выезда в сервисный центр.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+              Какие есть способы оплаты?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Оплатить можно безналичным переводом или отдать деньги мастеру. Вне зависимости от способа оплаты, клиент получает чек.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dws">
+    <div class="pulse">
+      <div class="bloc"></div>
+      <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i></div>
+      <div class="text">Оформить заказ</div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

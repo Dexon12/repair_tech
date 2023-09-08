@@ -1,0 +1,74 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/header_css1.css' %}">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="icon-link header-item" href="{% url 'home_view' %}">
+      <img src="{% static 'img/logo2.svg' %}" alt="Logotype" style="height: 60px; width: 150px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="header-container">
+      <a href="#" style="text-decoration: none; color: black;">
+        <i class="fa-solid fa-phone fa-shake" style="position: relative; right: 20px; bottom: 20px; font-size: 20px;"></i>
+      </a>
+      <a href="#" class="text_a header-item">
+        <h4 style="font-size: 20px;">+7-921-993-21-34 / 41-32-23</h4>
+        <h4 style="font-size: 20px;">+7-921-556-42-12 / 34-47-81</h4>
+      </a>
+      <a href="#" class="text_a header-item">
+        <h4 style="font-size: 20px;">Калининград, Пушкина 120</h4>
+        <h4 style="font-size: 20px;">08:00–22:00, сб-вс 9:00–20:00</h4>
+      </a>
+      <a href="#" class="btn btn-outline-info">Оформить заказ</a>
+      <div class="header-icons">
+        <a href="#" class="header-icon" style="color: #665CAC;"><i class="fa-brands fa-viber"></i></a>
+        <a href="#" class="header-icon" style="color: #0088CC;"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" class="header-icon" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+        {% if request.user.is_authenticated %}
+              <a href="{% url 'profile_view' %}" class="profile-icon" style="margin-left: 20px;"><i class="fa-solid fa-user"></i></a>
+        {% else %}
+              <a href="{% url 'login_user' %}" class="btn btn-outline-info" style="margin-left: 20px; font-size: 17px;"><i class="fa-regular fa-circle-user"></i> Войти</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileModalLabel">Информация о профиле</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">По умолчанию</span>
+          <input type="text" class="form-control" aria-label="Пример размера поля ввода" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">По умолчанию</span>
+          <input type="text" class="form-control" aria-label="Пример размера поля ввода" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">По умолчанию</span>
+          <input type="text" class="form-control" aria-label="Пример размера поля ввода" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">По умолчанию</span>
+          <input type="text" class="form-control" aria-label="Пример размера поля ввода" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">По умолчанию</span>
+          <input type="text" class="form-control" aria-label="Пример размера поля ввода" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-my" data-bs-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
